@@ -1,0 +1,71 @@
+    .caja_titulo_base {
+        width: 95%;
+        margin: 10px auto;
+        border: 10px #333 solid;
+    }
+    
+    .caja_titulo_base h1 {
+        text-align: center;
+        color: #04AA6D;
+        margin: 5px 5px;
+    }
+    
+    .nav {
+        background-color: #333;
+    }
+    
+    .nav nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+    
+    .nav nav li {
+        float: left;
+    }
+    
+    .nav nav li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    .nav nav li a:hover:not(.active) {
+        background-color: #111;
+    }
+    
+    .active {
+        background-color: #04AA6D;
+    }
+    /*--------------------------------INICIO.HTML----------------------------------- */
+    
+    .centro {
+        margin: 20px auto;
+    }
+    
+    .flex-container {
+        display: flex;
+    }
+    
+    .flex-container div {
+        width: 50%;
+        margin: 20px 20px;
+    }
+    
+    .inicio_texto {
+        padding: 10px;
+    }
+    
+    .caja {
+        padding: 10px;
+        text-align: center;
+    }
+    
+    .caja img {
+        width: 50%;
+        box-shadow: 0px 1px 15px #04AA6D;
+    }

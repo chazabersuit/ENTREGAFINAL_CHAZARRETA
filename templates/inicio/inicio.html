@@ -1,0 +1,29 @@
+ {% extends 'inicio/base.html' %} {% block centro %}
+<div class="container centro">
+    <h1>Los gatos...</h1>
+    <div class="flex-container">
+        <div class="inicio_texto">
+            <p>El gato doméstico (Felis silvestris catus), llamado más comúnmente gato, y de forma coloquial minino, michino, michi, micho, mizo, miz, morroño o morrongo, y algunos nombres más, es un mamífero carnívoro de la familia Felidae. Es una subespecie
+                domesticada por la convivencia con el ser humano.</p>
+
+            <p> El nombre actual en muchas lenguas proviene del latín vulgar catus. Paradójicamente, catus aludía al gatos salvajes, mientras que los gatos domésticos eran llamados felis.</p>
+
+            <p> Como resultado de mutaciones genéticas, cruzamiento y selección artificial, hay numerosas razas. Algunas, como la raza Sphynx o la Peterbald están desprovistas de pelo; otras carecen de cola, como los gatos de la raza Manx, y algunas tienen
+                coloraciones atípicas, como los llamados gatos azules.</p>
+
+
+            <p> El gato se comunica a través de vocalizaciones. Las más populares son su característico maullido y el ronroneo, pero puede aullar, gemir, gruñir y bufar. Además, adopta poses o expresiones que informan, a sus congéneres, sus enemigos o sus
+                cuidadores, de su ánimo o sus intenciones.</p>
+
+            <p> Junto con el perro, es el animal doméstico más popular, como mascota, como ayuda en la lucha contra roedores o ambas cosas.</p>
+
+            <p> Por su amplio abanico de presas potenciales, por su alta eficiencia como depredador, y por su elevado éxito reproductivo —especialmente si se suministra artificialmente alimento a las colonias sin tomar medidas adicionales para limitar su
+                fertilidad— el gato doméstico está incluido en la lista de las cien especies exóticas invasoras más dañinas del mundo de la Unión Internacional para la Conservación de la Naturaleza.
+            </p>
+        </div>
+        <div class="caja">
+            {% load static %}
+            <img class="img-fluid" src={% static 'imagenes/20220601_223822.jpg'%} alt="Macha">
+        </div>
+    </div>
+    {% endblock centro %}
