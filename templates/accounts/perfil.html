@@ -1,0 +1,17 @@
+{% extends 'inicio/base.html' %} {% block centro %}
+<div class="container centro">
+    <h2>Perfil usuario {{request.user.username}}</h2>
+
+    <ul>
+        <li>Nombre: {{request.user.first_name}}</li>
+        <li>Apellido: {{request.user.last_name}}</li>
+        <li>Email: {{request.user.email}}</li>
+        {% if request.user.masdatosusuario.avatar %}
+        <li>
+            <img src={{request.user.masdatosusuario.avatar.url}} alt="">
+        </li>
+        {% endif%}
+    </ul>
+    <a href={% url 'editar_perfil' %} class="btn btn-success">EDITAR PERFIL</a>
+</div>
+{% endblock centro %}

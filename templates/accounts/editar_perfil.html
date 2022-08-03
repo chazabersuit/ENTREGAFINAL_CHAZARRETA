@@ -1,13 +1,12 @@
 {% extends 'inicio/base.html' %} {% block centro %}
-
 <div class="container centro">
-    <form action={% url 'editar' dato.id %} method="POST">
+    <h2>Editar usuario {{request.user.username}}</h2>
+
+    <form action={% url 'editar_perfil' %} method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <table>
-            {{form.media}} {{form.as_table}}
-        </table>
+        <table>{{form}}</table>
+
         <button class="btn btn-success">GUARDAR</button>
     </form>
 </div>
-
 {% endblock centro %}

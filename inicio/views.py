@@ -1,7 +1,8 @@
 
+from datetime import datetime
 from tkinter import EW
 from django.shortcuts import redirect, render
-
+from django.contrib.auth.decorators import login_required
 from .models import Blog
 from .forms import Busqueda, CrearPost
 
@@ -21,6 +22,8 @@ def crear_post(request):
                 titulo=data.get('titulo').upper(),
                 subtitulo=data.get('subtitulo').lower(),
                 contenido=data.get('contenido'),
+                autor=request.user.username,
+                fecha_creacion=data.get('fecha_creacion') if data.get('fecha_creacion') else datetime.now()
                 )
             post.save()
             listado=Blog.objects.all()
@@ -40,26 +43,28 @@ def listado(request):
         listado=Blog.objects.all()
     return render(request,'inicio/listado.html',{'listado':listado,'form':form})
 
+@login_required
 def editar(request,id):
     dato=Blog.objects.get(id=id)
-    form=CrearPost(initial={'titulo':dato.titulo,'subtitulo':dato.subtitulo,'contenido':dato.contenido})
-    
+    form=CrearPost(initial={'titulo':dato.titulo,'subtitulo':dato.subtitulo,'contenido':dato.contenido,'autor':dato.autor,'fecha_creacion':dato.fecha_creacion})
     if request.method=="POST":
         form=CrearPost(request.POST)
         if form.is_valid():
             dato.titulo=form.cleaned_data.get('titulo')
             dato.subtitulo=form.cleaned_data.get('subtitulo')
             dato.contenido=form.cleaned_data.get('contenido')
-            print('pase por 1')
+            # dato.autor=form.cleaned_data.get('autor')
+            # dato.fecha_creacion=form.cleaned_data('fecha_creacion')
+            
             dato.save()
             return redirect('listado')
         else:
-            print('pase por 2')
+            
             return render(request,'inicio/blog.html',{'dato':dato})
-    print('pase por 3')
+
     return render(request,'inicio/editar.html',{'form':form,'dato':dato})
 
-
+@login_required
 def eliminar(request,id):
     dato=Blog.objects.get(id=id)
     dato.delete()
@@ -68,3 +73,6 @@ def eliminar(request,id):
 def mostrar(request,id):
     dato=Blog.objects.get(id=id)
     return render(request,'inicio/listado.html',{'dato':dato})
+
+def sobrenosotros(request):
+    return render(request, 'inicio/sobrenosotros.html',{})

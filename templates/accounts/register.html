@@ -1,0 +1,10 @@
+{% extends 'inicio/base.html' %} {% block centro %}
+<div class="container centro">
+    <form action={% url 'register' %} method="POST">
+        {% csrf_token %}
+        <table>{{form}}</table>
+
+        <button class="btn btn-success">REGISTRAR</button>
+    </form>
+</div>
+{% endblock centro %}

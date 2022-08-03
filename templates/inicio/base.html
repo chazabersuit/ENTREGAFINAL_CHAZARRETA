@@ -24,8 +24,16 @@
             <ul>
                 <li><a class="active" href={% url 'inicio' %}>Inicio</a></li>
                 <li><a href={% url 'listado' %}>Blog</a></li>
-                <li><a href="#">Quiénes somos</a></li>
-                <li><a href="#">Iniciar sesión</a></li>
+                <li><a href={% url 'sobrenosotros' %}>Sobre mi...</a></li>
+                {% if request.user.is_authenticated%}
+                <li><a href={% url 'perfil' %}>{{request.user.username}}{% if request.user.masdatosusuario.avatar %}
+                    <img src={{request.user.masdatosusuario.avatar.url}} alt="" height="20px"></a> </li>
+                {% endif %}
+                <li><a href={% url 'logout' %}>Cerrar sesión</a></li>
+                {%else%}
+                <li><a href={% url 'login' %}>Iniciar sesión</a></li>
+                <li><a href={% url 'register' %}>Registrar</a></li>
+                {% endif %}
             </ul>
         </nav>
     </div>

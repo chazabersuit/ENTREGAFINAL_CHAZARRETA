@@ -1,0 +1,11 @@
+{% extends 'inicio/base.html' %} {% block centro %}
+<div class="container centro">
+    <form action={% url 'login' %} method="POST">
+        {% csrf_token %}
+        <table class="table">
+            {{form}}
+        </table>
+        <button class="btn btn-success">LOGUEARSE</button>
+    </form>
+</div>
+{% endblock centro %}

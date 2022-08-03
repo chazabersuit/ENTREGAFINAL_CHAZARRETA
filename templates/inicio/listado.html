@@ -1,32 +1,40 @@
 {% extends 'inicio/base.html' %} {% block centro %}
-<div>
+<div class="buscar_titulo">
     <form action={% url 'listado' %}>
         {{form}}
         <button class="btn btn-success">BUSCAR</button>
         <a href={% url 'listado' %} class="btn btn-success">MOSTRAR TODO</a>
     </form>
-
 </div>
 <div class="container centro">
     {% if listado %} {% for i in listado%}
     <div class="listado_titulo">
         <h3>{{i.titulo}}__<sub> {{i.subtitulo}}</sub></h3>
     </div>
-    <div>
-        {{i.contenido}}
+    <div class="listado_contenido">
+        {{i.contenido | safe}}
 
     </div>
-    <div class="boton_editar_elimnar">
-        <a href={% url 'editar' i.id %} class="btn btn-info">EDITAR</a>
-        <a href={% url 'eliminar' i.id %} class="btn btn-danger">ELIMINAR</a>
+    <div class="firma">
+        {{i.autor}} {{i.fecha_creacion}}
     </div>
-    {% endfor %} {% else %}
+    <div class="boton_editar_elimnar">
+        {% if request.user.is_authenticated%} {% if request.user.username == i.autor %}
+
+        <a href={% url 'editar' i.id %} class="btn btn-info">EDITAR</a>
+        <a href={% url 'eliminar' i.id %} class="btn btn-danger">ELIMINAR</a> {%endif%} {%else%} {%endif%}
+
+    </div> {% endfor %} {% else %}
     <div class="mensaje_sin_entrada">
         <h3>No hay entradas realizadas aun :(</h3>
     </div>
     {% endif %}
 </div>
+
 <div class="boton_nuevo_post">
-    <a href={% url 'crear_post' %} class="btn btn-success">NUEVO POST</a>
+    {% if request.user.is_authenticated%}
+    <a href={% url 'crear_post' %} class="btn btn-success">NUEVO POST</a> {%else%}
+    <p>Para poder subir/borrar/modificar un posteo debe estar logueado</p>
+    {%endif%}
 </div>
 {% endblock centro %}

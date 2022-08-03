@@ -81,7 +81,8 @@
     .boton_nuevo_post {
         text-align: right;
         width: 90%;
-        margin-bottom: 50px;
+        margin: 50px 10px;
+        color: red;
     }
     
     .mensaje_sin_entrada h3 {
@@ -92,4 +93,36 @@
     .boton_editar_elimnar {
         text-align: right;
         margin: 20px 0px;
+    }
+    
+    .buscar_titulo {
+        margin: 20px 50px;
+        text-align: right;
+        width: 90%;
+    }
+    
+    .firma {
+        text-align: right
+    }
+    
+    .listado_contenido {
+        box-shadow: 5px 5px 5px #04AA6D;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    
+    .mensaje_logout {
+        text-align: center;
+        color: red;
+        margin: 50px 0px;
+    }
+    
+    .mensaje_logout h2 {
+        margin: 100px;
+    }
+    
+    .fotos_carousel {
+        width: 500px;
+        margin: 30px auto;
+        box-shadow: 5px 5px 5px #04AA6D;
     }

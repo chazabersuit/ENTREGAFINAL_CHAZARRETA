@@ -4,7 +4,7 @@
     <form action={% url 'crear_post' %} method="POST">
         {% csrf_token %}
         <table>
-            {{form.as_table}}
+            {{form.media}} {{form.as_table}}
         </table>
         <button class="btn btn-success">CREAR</button>
         <a href={% url 'listado' %} class="btn btn-success">VOLVER</a>

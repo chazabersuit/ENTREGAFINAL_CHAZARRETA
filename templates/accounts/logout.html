@@ -1,0 +1,9 @@
+{% extends 'inicio/base.html' %} {% block centro %}
+<div class="container centro">
+    <div class="mensaje_logout">
+        <h2>Se ha desbloqueado con exito :)</h2>
+        <a href={% url 'inicio' %} class="btn btn-info">IR AL INCIO</a>
+    </div>
+
+</div>
+{% endblock centro %}
